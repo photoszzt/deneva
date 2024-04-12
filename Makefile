@@ -1,7 +1,7 @@
-CC=g++
+CC=clang++-15
 CFLAGS=-Wall -g -gdwarf-3 -std=c++0x 
 #CFLAGS += -fsanitize=address -fno-omit-frame-pointer 
-JEMALLOC=./jemalloc-4.0.3
+JEMALLOC=../jemalloc/
 NNMSG=./nanomsg-0.5-beta
 
 .SUFFIXES: .o .cpp .h
@@ -13,7 +13,8 @@ CFLAGS += $(DEPS) -D NOGRAPHITE=1 -Werror -Wno-sizeof-pointer-memaccess
 LDFLAGS = -Wall -L. -L$(NNMSG) -L$(JEMALLOC)/lib -Wl,-rpath,$(JEMALLOC)/lib -pthread -gdwarf-3 -lrt -std=c++0x
 #LDFLAGS = -Wall -L. -L$(NNMSG) -L$(JEMALLOC)/lib -Wl,-rpath,$(JEMALLOC)/lib -pthread -gdwarf-3 -lrt -std=c++11
 LDFLAGS += $(CFLAGS)
-LIBS = -lnanomsg -lanl -ljemalloc 
+# LIBS = -lnanomsg -lanl -ljemalloc 
+LIBS = -lnanomsg -lanl
 
 DB_MAINS = ./client/client_main.cpp ./system/sequencer_main.cpp ./unit_tests/unit_main.cpp
 CL_MAINS = ./system/main.cpp ./system/sequencer_main.cpp ./unit_tests/unit_main.cpp
