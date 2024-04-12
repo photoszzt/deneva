@@ -64,7 +64,8 @@ unit_test :  $(OBJS_UNIT)
 
 
 rundb : $(OBJS_DB)
-	$(CC) -static -o $@ $^ $(LDFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(LDFLAGS) $(LIBS)
+#	$(CC) -static -o $@ $^ $(LDFLAGS) $(LIBS)
 #	$(CC) -o $@ $^ $(LDFLAGS) $(LIBS)
 ./obj/%.o: transport/%.cpp
 	$(CC) -static -c $(CFLAGS) $(INCLUDE) $(LIBS) -o $@ $<
@@ -88,7 +89,8 @@ rundb : $(OBJS_DB)
 
 
 runcl : $(OBJS_CL)
-	$(CC) -static -o $@ $^ $(LDFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(LDFLAGS) $(LIBS)
+#	$(CC) -static -o $@ $^ $(LDFLAGS) $(LIBS)
 #	$(CC) -o $@ $^ $(LDFLAGS) $(LIBS)
 ./obj/%.o: transport/%.cpp
 	$(CC) -static -c $(CFLAGS) $(INCLUDE) $(LIBS) -o $@ $<
