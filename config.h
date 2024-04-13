@@ -351,7 +351,7 @@ enum PPSTxnType {PPS_ALL = 0,
 
 #define SEED 0
 #define SHMEM_ENV false
-#define ENVIRONMENT_EC2 true
+#define ENVIRONMENT_EC2 false
 
 #endif
 
